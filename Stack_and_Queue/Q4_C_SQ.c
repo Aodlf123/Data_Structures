@@ -112,7 +112,24 @@ int main()
 
 void reverse(Queue *q)
 {
-/* add your code here */
+    int temp = q->ll.size;
+    int arr[temp];
+    int index = 0;
+
+    while (temp > index) {
+        arr[index] = dequeue(q);
+
+        index++;
+    }
+
+    index--;
+
+    while (index >= 0) {
+        enqueue(q, arr[index]);
+        index--;
+    }
+
+    return;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

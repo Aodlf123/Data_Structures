@@ -102,7 +102,22 @@ int main()
 
 int hasGreatGrandchild(BTNode *node)
 {
-	/* add your code here */
+	if (node == NULL) {
+        return 0;
+    }
+
+    int leftCase, rightCase;
+    int returnValue;
+
+    leftCase = hasGreatGrandchild(node->left);
+    rightCase = hasGreatGrandchild(node->right);
+
+    if (leftCase >= 3 || rightCase >= 3) {
+        printf("%d ", node->item);
+    }
+
+    (leftCase >= rightCase) ? (returnValue = leftCase) : (returnValue = rightCase);
+    return returnValue + 1;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
